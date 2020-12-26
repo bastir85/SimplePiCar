@@ -2,11 +2,13 @@ import smbus
 import time
 import math
 
+
 class PWM:
     def __init__(self, bus_number, address, frequency):
         self.bus = smbus.SMBus(bus_number)
         self.address=address
         self._setup_chip(frequency)
+
 
     def _setup_chip(self, frequency):
         _MODE1              = 0x00
@@ -42,6 +44,7 @@ class PWM:
         time.sleep(0.005)
         self.write(_MODE1, old_mode | 0x80)
 
+
     def write(self, register, value):
         self.bus.write_byte_data(self.address, register, value)
 
@@ -56,6 +59,7 @@ class PWM:
         
         self.write(_LED0_OFF_L+4*channel, value)
         self.write(_LED0_OFF_H+4*channel, value >> 8)
+
 
     def set_on_value(self, channel, value):
         '''
