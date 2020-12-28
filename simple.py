@@ -78,7 +78,6 @@ try:
         GPIO.output(DIRECTION_MOTOR_B, dir)
         pwm.set_off_value(PWM_MOTOR_LEFT, 2500) #left
         pwm.set_off_value(PWM_MOTOR_RIGHT, 2500) #right
-        time.sleep(2)
         dir = not dir
 except KeyboardInterrupt:
     pass
