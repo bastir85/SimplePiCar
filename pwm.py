@@ -6,7 +6,7 @@ import math
 class PWM:
     def __init__(self, bus_number, address, frequency):
         self.bus = smbus.SMBus(bus_number)
-        self.address=address
+        self.address = address
         self._setup_chip(frequency)
 
 
